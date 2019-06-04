@@ -13,14 +13,24 @@ const Post = props => {
             <img className="main-img" src={props.instaPost.imageUrl} alt="#" />
             <div className="bottom-section">
                 <h4 className="likes">{props.instaPost.likes} likes</h4>
-                <CommentSection instaPostComments={props.instaPost.comments} />
+                <CommentSection 
+                    instaPostComments={props.instaPost.comments} 
+                />
             </div>
         </div>
     )
 }
 
 Post.propTypes = {
-    instaPost: PropTypes.object.isRequired
+    instaPost: PropTypes.shape({
+        comments:     PropTypes.arrayOf(PropTypes.object),
+        id:           PropTypes.string.isRequired,
+        imageUrl:     PropTypes.string.isRequired,
+        likes:        PropTypes.number.isRequired,
+        thumbnailUrl: PropTypes.string.isRequired,
+        timestamp:    PropTypes.string.isRequired,
+        username:     PropTypes.string.isRequired
+    })
 }
 
 export default Post;
