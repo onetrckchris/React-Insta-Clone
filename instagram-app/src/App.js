@@ -11,15 +11,31 @@ class App extends React.Component {
     super();
 
     this.state = {
-      dummyData
+      posts: dummyData,
+      filteredPosts: []
+    }
+  }
+
+  search = event => {
+    if(event.target.value !== '') {
+      this.setState({
+        filteredPosts: this.state.posts.filter(post => 
+          post.username.includes(event.target.value
+        ))
+      }) 
+    } else {
+      this.setState({ filteredPosts: this.state.posts })
     }
   }
 
   render() {
     return (
       <div className="App">
-        <NavBar />
-        <PostContainer instaPosts={this.state.dummyData} />
+        <NavBar search={this.search} />
+        <PostContainer 
+          instaPosts={this.state.filteredPosts.length !== 0 ? this.state.filteredPosts : this.state.posts } 
+          likePost={this.likePost}
+        />
       </div>
     );
   }

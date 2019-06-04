@@ -13,6 +13,7 @@ const PostContainer = props => {
                     key={instaPost.id} 
                     instaPost={instaPost} 
                     addComment={props.addComment}
+                    likePost={props.likePost}
                 />
             ))}
         </div>

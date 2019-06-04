@@ -1,21 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
 
 import Comment from './Comment';
 import CommentForm from './CommentForm';
 
-const CommentSection = props => {
-    return (
-        <div>
-            {props.instaPostComments.map(instaPostComment => (
-                <Comment 
-                    key={instaPostComment.id} 
-                    comment={instaPostComment}
-                />
-            ))}
-            <CommentForm />
-        </div>
-    )
+class CommentSection extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            comments: this.props.instaPostComments
+        }
+    }
+
+    addComment = (value) => {
+        const newComment = {
+            id: uuid.v4(),
+            username: "coolguy420",
+            text: value
+        }
+        
+        this.setState({ comments: [...this.state.comments, newComment] })
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.comments.map(comment => (
+                    <Comment 
+                        key={comment.id} 
+                        comment={comment}
+                    />
+                ))}
+                <CommentForm addComment={this.addComment} />
+            </div>
+        )
+    }
 }
 
 CommentSection.propTypes = {
