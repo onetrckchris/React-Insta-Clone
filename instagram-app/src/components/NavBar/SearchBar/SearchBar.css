@@ -1,0 +1,12 @@
+.search-bar {
+    width: 200px;
+    height: 25px;
+    background-color: #FAFAFA;
+    border: 1px solid #DBDBDB;
+    padding: 0px 5px;
+}
+
+.search-bar::placeholder {
+    text-align: center;
+    color: #BEBEBE
+}
