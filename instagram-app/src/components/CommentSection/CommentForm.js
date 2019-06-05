@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './CommentSection.css'
+
 class CommentForm extends React.Component {
     constructor() {
         super();
@@ -20,7 +22,7 @@ class CommentForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit}>
+            <form className="comment-form" onSubmit={this.onSubmit}>
                 <input 
                     className="add-comment-input" 
                     type='text' 

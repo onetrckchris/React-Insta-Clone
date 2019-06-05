@@ -19,10 +19,11 @@ class Post extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="post-container">
                 <div className="header-info">
                     <img className="thumbnail" src={this.props.instaPost.thumbnailUrl} alt="#" />
                     <h4>{this.props.instaPost.username}</h4>
+                    <div className="delete-button" onClick={this.props.deletePost.bind(this, this.props.instaPost.id)}>X</div>
                 </div>
                 <img className="main-img" src={this.props.instaPost.imageUrl} alt="#" />
                 <div className="bottom-section">
