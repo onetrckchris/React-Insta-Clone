@@ -16,7 +16,7 @@ class CommentSection extends React.Component {
     addComment = (value) => {
         const newComment = {
             id: uuid.v4(),
-            username: "coolguy420",
+            username: localStorage.getItem('login-username'),
             text: value
         }
         
