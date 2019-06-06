@@ -1,7 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import CommentSection from '../CommentSection/CommentSection';
+
+const PostContainer = styled.div`
+    width: 614px;
+    margin: auto;
+`;
+
+const HeaderInfo = styled.div`
+    display: flex;
+    border: 1px solid #E6E6E6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: none;
+    padding: 15px 0px;
+    background-color: white;
+    align-items: center;
+`;
+
+const Poster = styled.h6`
+    margin: 0px;
+    font-weight: 600;
+`;
+
+const BottomSection = styled.div`
+    padding: 15px;
+    padding-bottom: 0px;
+    border: 1px solid #E6E6E6;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-top: -5px;
+    margin-bottom: 25px;
+    background-color: white;
+
+    & p {
+        margin: 10px 0px;
+        font-size: 0.9rem;
+    }
+
+    & i {
+        margin-right: 10px;
+        cursor: pointer;
+    }
+`;
+
+const Likes = styled.h4`
+    margin: 0px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+`;
 
 class Post extends React.Component {
     constructor(props) {
@@ -19,25 +68,23 @@ class Post extends React.Component {
 
     render() {
         return (
-            <div className="post-container">
-                <div className="header-info">
+            <PostContainer>
+                <HeaderInfo>
                     <img className="thumbnail" src={this.props.instaPost.thumbnailUrl} alt="#" />
-                    <h4>{this.props.instaPost.username}</h4>
+                    <Poster>{this.props.instaPost.username}</Poster>
                     <div className="delete-button" onClick={this.props.deletePost.bind(this, this.props.instaPost.id)}>X</div>
-                </div>
+                </HeaderInfo>
                 <img className="main-img" src={this.props.instaPost.imageUrl} alt="#" />
-                <div className="bottom-section">
-                    <img 
-                        className="post-actions" 
+                <BottomSection>
+                    <i className="far fa-heart fa-lg"
                         src="./imgs/bold-hearth.png" 
                         alt="#"
-                        onClick={this.likePost}
-                    />
-                    <img className="post-actions" src="./imgs/message.png" alt="#" />
-                    <h4 className="likes">{this.state.likes} likes</h4>
+                        onClick={this.likePost}></i>
+                    <i className="far fa-comment fa-lg"></i>
+                    <Likes className="likes">{this.state.likes} likes</Likes>
                     <CommentSection instaPostComments={this.props.instaPost.comments} />
-                </div>
-            </div>
+                </BottomSection>
+            </PostContainer>
         )
     }
 }
