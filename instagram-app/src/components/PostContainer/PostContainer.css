@@ -1,11 +1,5 @@
 .container {
-    margin: auto;
     padding-top: 100px;
-}
-
-.post-container {
-    width: 614px;
-    margin: auto;
 }
 
 .main-img {
@@ -15,39 +9,6 @@
 .post-actions {
     margin-right: 15px;
     cursor: pointer;
-}
-
-.likes {
-    margin: 0px;
-    margin-top: 10px;
-    font-size: 0.9rem;
-}
-
-.bottom-section {
-    padding: 15px;
-    padding-bottom: 0px;
-    border: 1px solid #E6E6E6;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    margin-top: -5px;
-    margin-bottom: 25px;
-    background-color: white;
-}
-
-.bottom-section p {
-    margin: 10px 0px;
-    font-size: 0.9rem;
-}
-
-.header-info {
-    display: flex;
-    border: 1px solid #E6E6E6;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom: none;
-    padding: 15px 0px;
-    background-color: white;
-    align-items: center;
 }
 
 .header-info h4 {

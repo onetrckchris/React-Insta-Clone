@@ -1,19 +1,26 @@
 import React from 'react';
+import styled from 'styled-components';
+import './App.css';
 
 import PostsPage from './components/PostContainer/PostsPage';
 import withAuthenticate from './authentication/withAuthenticate';
 import Login from './components/Login/Login';
 
-import './App.css';
+const AppContainer = styled.div`
+  background-color: #FAFAFA;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
 
 const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
+      <AppContainer className="App">
         <ComponentFromWithAuthenticate />
-      </div>
+      </AppContainer>
     );
   }
 }

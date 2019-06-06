@@ -1,8 +1,47 @@
 import React, { Component } from 'react'
+import styled from 'styled-components';
 
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    margin: auto;
+    width: 350px;
+    height: 380px;
+    border: 1px solid #E6E6E6;
+    background-color: white;
+`;
 
-import './Login.css';
+const Input = styled.input`
+    border-radius: 3px;
+    border: 1px solid #EFEFEF;
+    background-color: #FAFAFA;
+    height: 40px;
+    font-size: 0.8rem;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    outline: none;
+
+    &:placeholder {
+        color: #999999;
+    }
+`;
+
+const Button = styled.button`
+    background-color: #3897F0;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    padding: 5px;
+`;
+
+const Img = styled.img`
+    height: 100px;
+    margin-bottom: 50px;
+`;
 
 class Login extends Component {
     constructor() {
@@ -26,15 +65,22 @@ class Login extends Component {
     render() {
         return (
             <Form className="login-form" onSubmit={this.login}>
-                <FormGroup>
-                    <Label for="login-username">Email</Label>
-                    <Input type="text" name="username" id="login-username" onChange={this.onChange} />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="login-password">Password</Label>
-                    <Input type="password" name="password" id="login-password" onChange={this.onChange} />
-                </FormGroup>
-                <Button>Login</Button>
+                <Img src="./imgs/instagram-text-logo-large.PNG" />
+                <Input 
+                    type="text" 
+                    name="username" 
+                    id="login-username" 
+                    onChange={this.onChange} 
+                    placeholder="Username"
+                />
+                <Input 
+                    type="password" 
+                    name="password" 
+                    id="login-password" 
+                    onChange={this.onChange} 
+                    placeholder="Password"
+                />
+                <Button>Log In</Button>
             </Form>
         )
     }
